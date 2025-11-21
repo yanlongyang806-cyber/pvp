@@ -1,0 +1,19 @@
+h4.NWCureAll (AccessLevel 5) [Notes|Command_NWCureAll_NNOGameServer]
+For Neverwinter devs. Refill character hp, action points, remove injuries. based on Refill_HP_POW()
+
+
+h4.UGCDebugFailAllValidation (int) - (AccessLevel 9) [Notes|Command_UGCDebugFailAllValidation_NNOGameServer]
+No comment provided
+
+h4.UGCResourceValidation (int) - (AccessLevel 9) [Notes|Command_UGCResourceValidation_NNOGameServer]
+No comment provided
+
+h4.ugcDataCorruptionDoesNotAssert (int) - (AccessLevel 9) [Notes|Command_ugcDataCorruptionDoesNotAssert_NNOGameServer]
+No comment provided
+
+h4.ugcVisibleFSMObjectives (int) - (AccessLevel 9) [Notes|Command_ugcVisibleFSMObjectives_NNOGameServer]
+No comment provided
+
+h4.ugc_RoomInfosDebug (int) - (AccessLevel 9) [Notes|Command_ugc_RoomInfosDebug_NNOGameServer]
+No comment provided
+

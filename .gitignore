@@ -1,0 +1,57 @@
+# Visual Studio 编译输出
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.idb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 临时目录
+.vs/
+Win32/
+x64/
+Debug/
+Release/
+Full Debug/
+ipch/
+
+# 编译日志
+*.log
+build_errors.txt
+
+# AutoGen 生成文件（如果需要重新生成）
+# AutoGen/
+
+# 临时文件
+*.tmp
+*.temp
+*~
+*.swp
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# 备份文件
+*.bak
+*_副本.*
+
+# 用户配置
+*.vcxproj.user
+*.vcxproj.filters.user
+
+# 测试和日志
+logs/
+*.errors
+
+# 数据目录（通常很大，根据需要调整）
+# data/
+# tools/
+

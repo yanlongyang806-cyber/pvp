@@ -1,0 +1,6 @@
+h4.scp_NNOTranslatePowerAutoDesc (AccessLevel 9) [Notes|Command_scp_NNOTranslatePowerAutoDesc_NNOGameServer]
+*Returns: string*
+*Parameter 1: pchPowerDefName (string)*
+Gets the formatted AutoDesc message for the PowerDef
+
+
