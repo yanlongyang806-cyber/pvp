@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NNOGameServer", "NNOGameServer.vcxproj", "{C2303CD3-B255-F4CE-A55F-1F9B0DEA1926}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Full Debug|Win32 = Full Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2303CD3-B255-F4CE-A55F-1F9B0DEA1926}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2303CD3-B255-F4CE-A55F-1F9B0DEA1926}.Debug|Win32.Build.0 = Debug|Win32
+		{C2303CD3-B255-F4CE-A55F-1F9B0DEA1926}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
+		{C2303CD3-B255-F4CE-A55F-1F9B0DEA1926}.Full Debug|Win32.Build.0 = Full Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+

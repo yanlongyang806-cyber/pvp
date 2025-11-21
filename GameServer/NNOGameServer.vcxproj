@@ -54,6 +54,8 @@
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <EnableCodeAnalysis>false</EnableCodeAnalysis>
+      <AdditionalOptions>/analyze- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 /fixed:no %(AdditionalOptions)</AdditionalOptions>
@@ -64,7 +66,7 @@
       <EntryPointSymbol>wmainCRTStartup</EntryPointSymbol>
     </Link>
     <PreBuildEvent>
-      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath) &amp; exit /b 0</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
@@ -77,6 +79,7 @@
       <AdditionalIncludeDirectories>../Common/UGC;../../CrossRoads/GameServerLib/item;../../CrossRoads/GameServerLib/mission;../../CrossRoads/Common/Entity;../../CrossRoads/GameServerLib/UGC;../../CrossRoads/GameServerLib/Combat;../../libs/WorldLib;../../CrossRoads/Common/Mission;../../CrossRoads/Common/;../../CrossRoads/Common/UGC;../../Crossroads/Common/Combat;../../core/common/autogen;../../Crossroads/Common/item;../../libs/WorldLib/StaticWorld;./ai;./cmdparse;./missionSys/;../common;../../libs/serverlib/pub;../../libs/WorldLib/pub;../../libs/InputLib/pub;../../libs/EntityLib/pub;../../Crossroads/GameServerLib/reward;../../Crossroads/GameServerLib/world;../../Crossroads/GameServerLib/pub;../../Crossroads/GameServerLib/AutoGen;../../libs/Common/AutoGen;../../libs/Common;../../libs/AILib/pub;../../Crossroads/common/entity;../../core/combat;../../core/combat/server;../common/AutoGen;../../Crossroads/common/Mission;./entity;./rewardSys;../../libs/EntityLib/Combat;../../libs/EntityLib/MissionSys;../../libs/GameServerLib/MissionSys;./item/;./chat;../../Crossroads/GameServerLib;../../Crossroads/Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_FULLDEBUG;_WINDOWS;GAMESERVER=1;USEZLIB=1;_CRTDBG_MAP_ALLOC=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level4</WarningLevel>
+      <EnableCodeAnalysis>false</EnableCodeAnalysis>
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 /fixed:no %(AdditionalOptions)</AdditionalOptions>
@@ -87,7 +90,7 @@
       <EntryPointSymbol>wmainCRTStartup</EntryPointSymbol>
     </Link>
     <PreBuildEvent>
-      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath) &amp; exit /b 0</Command>
     </PreBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -184,3 +187,42 @@
   <ItemGroup>
     <ProjectReference Include="..\..\CrossRoads\GameServerLib\GameServerLib.vcxproj">
       <Project>{99999999-9ad9-4149-9cbd-07ba24320884}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\AILib\AILib.vcxproj">
+      <Project>{10980900-d4e8-420b-ade5-06afddd419bf}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\ContentLib\ContentLib.vcxproj">
+      <Project>{869105e2-8af2-4e48-a4d3-7b3e31441777}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\HttpLib\HttpLib.vcxproj">
+      <Project>{2acc94ec-3e38-48bd-b97f-5b46328a4aef}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\PatchClientLib\PatchClientLib.vcxproj">
+      <Project>{487db8d6-6faf-4e86-9800-75088911a703}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\ServerLib\ServerLib.vcxproj">
+      <Project>{dd475a7c-b1d4-43c4-acb7-d73c24be1eb7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\StructParserStub\StructParserStub.vcxproj">
+      <Project>{1d29e421-93b2-4e32-9186-7fafc3971c5b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\UtilitiesLib\UtilitiesLib.vcxproj">
+      <Project>{a6741f6e-5476-4f9f-9d65-62b54aaf1d08}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\libs\WorldLib\WorldLib.vcxproj">
+      <Project>{e9aeb79e-085b-4392-a53f-8a9c609e8385}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
