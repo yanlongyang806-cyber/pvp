@@ -39,16 +39,38 @@ QLWD/
 └── COMPILE_STATUS.md           # 编译状态报告
 ```
 
-## 🚀 快速开始（运行已编译的exe）
+## 🚀 快速开始
 
-**如果你只想运行服务器，不需要编译！**
+### 方法1：运行PVP Demo（推荐，已编译）✅
+
+**全新编译的PVP功能演示程序！**
 
 ```batch
-# 方法1：使用启动脚本（推荐）
+cd bin
+StartPVPDemo.bat
+```
+
+**特点：**
+- ✅ **已编译并推送到Git** - 可直接下载运行
+- ✅ **无依赖** - 不需要任何DLL文件
+- ✅ **体积小** - 仅107 KB
+- ✅ **演示PVP功能** - 战斗系统、荣誉值、治疗等
+- ✅ **基于真实代码** - 展示实际GameServer结构
+
+**包含功能：**
+- PVP邀请系统 (PvPInvites)
+- PVP荣誉值 (Pvp_Resources/Glory)
+- Combat战斗系统
+- 玩家治疗 (NWCureAll)
+
+### 方法2：运行完整GameServer（需要data目录）
+
+```batch
+# 使用启动脚本（推荐）
 cd bin
 StartGameServer.bat
 
-# 方法2：直接运行
+# 或直接运行
 cd bin
 GameServer.exe
 ```
