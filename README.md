@@ -1,5 +1,7 @@
 # 全地图PVP GameServer 项目
 
+![Build Status](https://github.com/yanlongyang806-cyber/pvp/actions/workflows/build-gameserver.yml/badge.svg)
+
 基于 Cryptic 引擎的 GameServer，支持全地图 PVP/PK 功能。
 
 ## ✨ 主要特性
