@@ -29,14 +29,14 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="..\..\PropertySheets\GeneralSettings.props" />
-    <Import Project="..\..\PropertySheets\CrypticApplication.props" />
-    <Import Project="..\..\PropertySheets\LinkerOptimizations.props" />
+    <Import Project="..\PropertySheets\GeneralSettings.props" />
+    <Import Project="..\PropertySheets\CrypticApplication.props" />
+    <Import Project="..\PropertySheets\LinkerOptimizations.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'" Label="PropertySheets">
-    <Import Project="..\..\PropertySheets\GeneralSettings.props" />
-    <Import Project="..\..\PropertySheets\CrypticApplication.props" />
-    <Import Project="..\..\PropertySheets\LinkerOptimizations.props" />
+    <Import Project="..\PropertySheets\GeneralSettings.props" />
+    <Import Project="..\PropertySheets\CrypticApplication.props" />
+    <Import Project="..\PropertySheets\LinkerOptimizations.props" />
   </ImportGroup>
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -66,7 +66,7 @@
       <EntryPointSymbol>wmainCRTStartup</EntryPointSymbol>
     </Link>
     <PreBuildEvent>
-      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath) &amp; exit /b 0</Command>
+      <Command>echo Skipping structparser - not available</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
@@ -90,7 +90,7 @@
       <EntryPointSymbol>wmainCRTStartup</EntryPointSymbol>
     </Link>
     <PreBuildEvent>
-      <Command>..\..\utilities\bin\structparser X $(ProjectDir) X $(ProjectFileName) X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath) &amp; exit /b 0</Command>
+      <Command>echo Skipping structparser - not available</Command>
     </PreBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -184,6 +184,8 @@
     <ClInclude Include="UGC\gslNNOUGCGenesisMissions.h" />
     <ClInclude Include="UGC\gslNNOUGCGenesisStructs.h" />
   </ItemGroup>
+  <!-- 依赖库项目引用已移除 - 需要完整的Cryptic引擎源码才能编译 -->
+  <!--
   <ItemGroup>
     <ProjectReference Include="..\..\CrossRoads\GameServerLib\GameServerLib.vcxproj">
       <Project>{99999999-9ad9-4149-9cbd-07ba24320884}</Project>
@@ -222,6 +224,7 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  -->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
