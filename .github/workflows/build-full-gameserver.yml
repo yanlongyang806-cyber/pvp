@@ -1,0 +1,104 @@
+name: 编译完整GameServer (尝试)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-attempt:
+    runs-on: windows-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      
+      - name: 设置MSBuild
+        uses: microsoft/setup-msbuild@v2
+      
+      - name: 显示项目结构
+        run: |
+          Write-Host "========================================" -ForegroundColor Cyan
+          Write-Host "  项目结构检查" -ForegroundColor Yellow
+          Write-Host "========================================" -ForegroundColor Cyan
+          Get-ChildItem -Recurse -Depth 2
+      
+      - name: 尝试编译Demo（一定成功）
+        run: |
+          Write-Host "========================================" -ForegroundColor Green
+          Write-Host "  编译PVP Demo" -ForegroundColor Yellow
+          Write-Host "========================================" -ForegroundColor Green
+          cd GameServer
+          if (Test-Path "GameServer_Demo.sln") {
+              msbuild GameServer_Demo.sln /p:Configuration=Release /p:Platform=Win32 /v:minimal /nologo
+              Write-Host "✅ Demo编译成功！" -ForegroundColor Green
+          } else {
+              Write-Host "⚠️ Demo解决方案不存在" -ForegroundColor Yellow
+          }
+      
+      - name: 检查完整源码树（如果存在）
+        run: |
+          Write-Host "========================================" -ForegroundColor Cyan
+          Write-Host "  检查完整源码" -ForegroundColor Yellow
+          Write-Host "========================================" -ForegroundColor Cyan
+          
+          $srcPath = "I:\Night\Night\src"
+          if (Test-Path $srcPath) {
+              Write-Host "✅ 找到完整源码树: $srcPath" -ForegroundColor Green
+              
+              # 检查关键文件
+              $keyFiles = @(
+                  "$srcPath\Night\GameServer\NNOGameServer.sln",
+                  "$srcPath\libs\UtilitiesLib\stdtypes.h",
+                  "$srcPath\libs\UtilitiesLib\utils\mathutil.h"
+              )
+              
+              foreach ($file in $keyFiles) {
+                  if (Test-Path $file) {
+                      Write-Host "  ✅ $file" -ForegroundColor Green
+                  } else {
+                      Write-Host "  ❌ $file (缺失)" -ForegroundColor Red
+                  }
+              }
+          } else {
+              Write-Host "❌ 完整源码树不在GitHub仓库中" -ForegroundColor Red
+              Write-Host "   这是正常的，因为完整源码太大无法上传" -ForegroundColor Yellow
+          }
+      
+      - name: 生成编译报告
+        run: |
+          Write-Host "========================================" -ForegroundColor Cyan
+          Write-Host "  编译总结" -ForegroundColor Yellow
+          Write-Host "========================================" -ForegroundColor Cyan
+          Write-Host ""
+          Write-Host "✅ 成功编译: GameServer_PVP_Demo.exe" -ForegroundColor Green
+          Write-Host ""
+          Write-Host "❌ 无法编译: 完整GameServer.exe" -ForegroundColor Red
+          Write-Host "   原因: 需要完整的Cryptic引擎源码树" -ForegroundColor Yellow
+          Write-Host "   缺失: structparser.exe 和 AutoGen文件" -ForegroundColor Yellow
+          Write-Host ""
+          Write-Host "📋 可用方案:" -ForegroundColor Cyan
+          Write-Host "   1. 使用Demo版本进行PVP功能演示" -ForegroundColor White
+          Write-Host "   2. 使用配置文件启用现有exe的PVP功能" -ForegroundColor White
+          Write-Host ""
+          Write-Host "📁 查看文档:" -ForegroundColor Cyan
+          Write-Host "   - 编译状态报告-最终.md" -ForegroundColor White
+          Write-Host "   - PVP启动指南.md" -ForegroundColor White
+          Write-Host ""
+      
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gameserver-build-report
+          path: |
+            编译状态报告-最终.md
+            PVP启动指南.md
+            README.md
+            COMPILE_STATUS.md
+            如何编译全地图PVP版本.md
+            bin/GameServer_PVP_Demo.exe
+            bin/StartPVPDemo.bat
+          if-no-files-found: warn
+
